@@ -1,0 +1,84 @@
+
+### 1. Create a course
+POST http://localhost:3002/courses
+Content-Type: application/json
+
+{
+  "name": "Programming Fundamentals",
+  "code": "CS101",
+  "credits": 3,
+  "description": "Introduction to programming"
+}
+
+###
+
+### 2. Get all courses
+GET http://localhost:3002/courses
+
+###
+
+### 3. Get course by ID
+GET http://localhost:3002/courses/1
+
+###
+
+### 4. Update course
+PUT http://localhost:3002/courses/1
+Content-Type: application/json
+
+{
+  "name": "Advanced Programming",
+  "credits": 4
+}
+
+###
+
+### 5. Delete course
+DELETE http://localhost:3002/courses/1
+
+###
+
+### 6. Test invalid credits (should return 400)
+POST http://localhost:3002/courses
+Content-Type: application/json
+
+{
+  "name": "Database Systems",
+  "code": "CS202",
+  "credits": 5
+}
+
+###
+
+### 7. Test missing required name (should return 400)
+POST http://localhost:3002/courses
+Content-Type: application/json
+
+{
+  "code": "CS303",
+  "credits": 3
+}
+
+###
+POST http://localhost:3002/courses
+Content-Type: application/json
+
+{
+  "name": "Programming Fundamentals",
+  "code": "CS101",
+  "credits": 3,
+  "description": "Introduction to programming"
+}
+### 8. Create a valid database course
+POST http://localhost:3002/courses
+Content-Type: application/json
+
+{
+  "name": "Database Systems",
+  "code": "CS202",
+  "credits": 3,
+  "description": "Introduction to databases"
+}
+
+### Final course list
+GET http://localhost:3002/courses

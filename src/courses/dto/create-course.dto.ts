@@ -1,0 +1,28 @@
+
+import {
+  IsInt,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  Max,
+  Min,
+} from 'class-validator';
+
+export class CreateCourseDto {
+  @IsString()
+  @IsNotEmpty()
+  name: string;
+
+  @IsString()
+  @IsNotEmpty()
+  code: string;
+
+  @IsInt()
+  @Min(1)
+  @Max(4)
+  credits: number;
+
+  @IsOptional()
+  @IsString()
+  description?: string;
+}
